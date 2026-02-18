@@ -1,0 +1,74 @@
+
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<title>Minecraft 1.26 豪華精裝版指南</title>
+<style>
+@font-face {
+    font-family: pixel;
+    src: local("Courier New");
+}
+body {
+    background: url('https://i.imgur.com/8QfQFQm.png');
+    background-size: cover;
+    color: #fff;
+    font-family: pixel;
+    text-shadow: 2px 2px #000;
+    padding: 40px;
+}
+.container {
+    background: rgba(0,0,0,0.7);
+    padding: 30px;
+    border: 4px solid #4CAF50;
+    animation: fadeIn 2s ease-in-out;
+}
+h1 { color: #4CAF50; }
+button {
+    background: #3a3a3a;
+    color: white;
+    border: 3px solid #888;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+button:hover {
+    background: #4CAF50;
+}
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+<h1>🏆 Minecraft Bedrock 1.26 豪華指南</h1>
+<p>包含完整自動農場教學、紅石進階與 1.26 更新解析。</p>
+
+<h2>自動農場示意圖</h2>
+<pre>
+  村民
+   ↓
+ [農地][農地][農地]
+    ↓ 收集漏斗
+   箱子
+</pre>
+
+<button onclick="playMusic()">播放背景音樂</button>
+<audio id="bgm" loop>
+  <source src="" type="audio/mpeg">
+</audio>
+
+</div>
+
+<script>
+function playMusic(){
+    const audio = document.getElementById('bgm');
+    audio.src = "https://cdn.pixabay.com/download/audio/2022/03/15/audio_1.mp3?filename=8bit-music-11733.mp3";
+    audio.play();
+}
+</script>
+
+</body>
+</html>
