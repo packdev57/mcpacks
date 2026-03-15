@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minecraft 模組商店</title>
+    <style>
+        /* 基礎頁面設定 (深色主題) */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #2c2f33;
+            color: #ffffff;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* 頂部導航與搜尋欄 */
+        header {
+            background-color: #23272a;
+            padding: 30px 20px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+        }
+        header h1 {
+            margin: 0 0 20px 0;
+            color: #43b581; /* 類似 Minecraft 的綠色 */
+            font-size: 2.5em;
+        }
+        #searchBar {
+            width: 80%;
+            max-width: 500px;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 25px;
+            font-size: 16px;
+            outline: none;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+
+        /* 模組列表容器 */
+        .store-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 40px;
+            gap: 25px;
+        }
+
+        /* 單個模組卡片設計 */
+        .mod-card {
+            background-color: #36393f;
+            border-radius: 12px;
+            width: 260px;
+            padding: 25px;
+            text-align: center;
+            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .mod-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+        }
+        .mod-icon {
+            width: 120px;
+            height: 120px;
+            object-fit: cover;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            background-color: #23272a; /* 圖片若遺失的替代背景色 */
+        }
+        .mod-title {
+            font-size: 1.4em;
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: #ffffff;
+        }
+
+        /* 下載按鈕設計 */
+        .download-btn {
+            display: block;
+            background-color: #43b581;
+            color: white;
+            text-decoration: none;
+            padding: 12px 0;
+            border-radius: 8px;
+            font-weight: bold;
+            font-size: 1.1em;
+            transition: background-color 0.2s ease;
+        }
+        .download-btn:hover {
+            background-color: #3ca374;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Minecraft 模組商店</h1>
+        <input type="text" id="searchBar" placeholder="搜尋模組名稱...">
+    </header>
+
+    <div class="store-container" id="storeContainer">
+        
+        <div class="mod-card">
+            <img src="femjka_1353-mcpstpreview.png" alt="更多標題-模組圖示" class="mod-icon">
+            <div class="mod-title">更多標題</div>
+            <a href="https://packdev57.github.io/mcpacks/femjka-1353/" target="_blank" class="download-btn">前往下載頁面</a>
+        </div>
+        
+        </div>
+
+    <script>
+        document.getElementById('searchBar').addEventListener('input', function(e) {
+            // 取得使用者輸入的文字，並轉成小寫以方便比對
+            const searchTerm = e.target.value.toLowerCase();
+            // 取得所有的模組卡片
+            const modCards = document.querySelectorAll('.mod-card');
+
+            // 檢查每張卡片的標題是否包含搜尋文字
+            modCards.forEach(card => {
+                const title = card.querySelector('.mod-title').textContent.toLowerCase();
+                if (title.includes(searchTerm)) {
+                    card.style.display = 'block'; // 顯示符合的卡片
+                } else {
+                    card.style.display = 'none';  // 隱藏不符合的卡片
+                }
+            });
+        });
+    </script>
+
+</body>
+  </html>
+  
