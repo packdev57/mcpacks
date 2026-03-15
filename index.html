@@ -1,62 +1,163 @@
-
 <!DOCTYPE html>
-<html lang="zh-Hant">
+<html lang="zh-TW">
 <head>
-<meta charset="UTF-8">
-<title>Minecraft Packs-packdev57</title>
-<style>
-@font-face {
-    font-family: noto-sans;
-    src: local("Courier New");
-}
-body {
-    background: url('background');
-    background-size: cover;
-    color: #fff;
-    font-family: pixel;
-    text-shadow: 2px 2px #000;
-    padding: 40px;
-}
-.container {
-    background: rgba(0,0,0,0.7);
-    padding: 30px;
-    border: 4px solid #4CAF50;
-    animation: fadeIn 2s ease-in-out;
-}
-h1 { color: #4CAF50; }
-button {
-    background: #3a3a3a;
-    color: white;
-    border: 3px solid #888;
-    padding: 10px 20px;
-    cursor: pointer;
-}
-button:hover {
-    background: #4CAF50;
-}
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>模組商店 - Package 43</title>
+    <style>
+        :root {
+            --primary-color: #388e3c;
+            --bg-color: #121212;
+            --card-bg: #1e1e1e;
+            --text-color: #e0e0e0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 500px;
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            text-align: center;
+        }
+
+        h1 {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        p.subtitle {
+            font-size: 0.9rem;
+            color: #888;
+            margin-bottom: 2rem;
+        }
+
+        .module-icon {
+            width: 120px;
+            height: 120px;
+            background: #333;
+            margin: 0 auto 1.5rem;
+            border-radius: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 3rem;
+            border: 2px solid var(--primary-color);
+        }
+
+        .version-selector {
+            margin-bottom: 2rem;
+            text-align: left;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+        }
+
+        select {
+            width: 100%;
+            padding: 12px;
+            border-radius: 8px;
+            background: #2c2c2c;
+            color: white;
+            border: 1px solid #444;
+            font-size: 1rem;
+            cursor: pointer;
+            outline: none;
+        }
+
+        select:focus {
+            border-color: var(--primary-color);
+        }
+
+        .download-btn {
+            display: inline-block;
+            width: 100%;
+            padding: 15px;
+            background-color: var(--primary-color);
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 8px;
+            transition: transform 0.2s, background 0.2s;
+            cursor: pointer;
+            border: none;
+            font-size: 1.1rem;
+        }
+
+        .download-btn:hover {
+            background-color: #45a049;
+            transform: translateY(-2px);
+        }
+
+        .download-btn:active {
+            transform: translateY(0);
+        }
+
+        .info-tag {
+            display: inline-block;
+            margin-top: 1rem;
+            font-size: 0.8rem;
+            padding: 4px 10px;
+            background: #333;
+            border-radius: 5px;
+            color: #aaa;
+        }
+    </style>
 </head>
 <body>
 
 <div class="container">
-<h1>📦 Minecraft資源包</h1>
-<p>此網頁還在開發，敬請期待</p>
+    <div class="module-icon">📦</div>
+    <h1>Package 43</h1>
+    <p class="subtitle">Minecraft 資源包商店</p>
 
-<h2>error-01[sitedev]</h2>
-</pre>packdev57.github.io
-</pre>
+    <div class="version-selector">
+        <label for="version">選擇安裝版本：</label>
+        <select id="version" onchange="updateDownloadLink()">
+            <option value="Package 43v4.mcpack">Version 4 (最新版本)</option>
+            <option value="Package 43v3.mcpack">Version 3</option>
+            <option value="Package 43v3-test.mcpack">Version 3 (測試版)</option>
+            <option value="Package 43v2.mcpack">Version 2</option>
+            <option value="Package 43v1-test.mcpack">Version 1 (測試版)</option>
+        </select>
+    </div>
 
+    <a id="downloadLink" href="Package 43v4.mcpack" download class="download-btn">
+        立即安裝模組
+    </a>
 
-
-
+    <div class="info-tag" id="fileNameDisplay">
+        檔案名稱: 更多標題
+    </div>
 </div>
 
 <script>
-}
+    function updateDownloadLink() {
+        const selector = document.getElementById('version');
+        const link = document.getElementById('downloadLink');
+        const display = document.getElementById('fileNameDisplay');
+        
+        const selectedFile = selector.value;
+        
+        // 更新下載連結與顯示
+        link.href = selectedFile;
+        display.innerText = "檔案名稱: " + selectedFile;
+    }
 </script>
 
 </body>
