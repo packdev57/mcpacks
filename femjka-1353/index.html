@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>模組商店 - 更多標題（基岩版）</title>
+    <style>
+        :root {
+            --primary-color: #388e3c;
+            --bg-color: #121212;
+            --card-bg: #1e1e1e;
+            --text-color: #e0e0e0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 500px;
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            text-align: center;
+        }
+
+        h1 {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        p.subtitle {
+            font-size: 0.9rem;
+            color: #888;
+            margin-bottom: 2rem;
+        }
+
+        .module-icon {
+            width: 120px;
+            height: 120px;
+            background: #333;
+            margin: 0 auto 1.5rem;
+            border-radius: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 3rem;
+            border: 2px solid var(--primary-color);
+        }
+
+        .version-selector {
+            margin-bottom: 2rem;
+            text-align: left;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+        }
+
+        select {
+            width: 100%;
+            padding: 12px;
+            border-radius: 8px;
+            background: #2c2c2c;
+            color: white;
+            border: 1px solid #444;
+            font-size: 1rem;
+            cursor: pointer;
+            outline: none;
+        }
+
+        select:focus {
+            border-color: var(--primary-color);
+        }
+
+        .download-btn {
+            display: inline-block;
+            width: 100%;
+            padding: 15px;
+            background-color: var(--primary-color);
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 8px;
+            transition: transform 0.2s, background 0.2s;
+            cursor: pointer;
+            border: none;
+            font-size: 1.1rem;
+        }
+
+        .download-btn:hover {
+            background-color: #45a049;
+            transform: translateY(-2px);
+        }
+
+        .download-btn:active {
+            transform: translateY(0);
+        }
+
+        .info-tag {
+            display: inline-block;
+            margin-top: 1rem;
+            font-size: 0.8rem;
+            padding: 4px 10px;
+            background: #333;
+            border-radius: 5px;
+            color: #aaa;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="module-icon">✕</div>
+    <h1>更多標題(BE)</h1>
+    <p class="subtitle">Minecraft 資源包商店</p>
+
+    <div class="version-selector">
+        <label for="version">選擇安裝版本：</label>
+        <select id="version" onchange="updateDownloadLink()">
+            <option value="Package 43v4.mcpack">Version 4 (最新版本)</option>
+            <option value="Package 43v3.mcpack">Version 3</option>
+            <option value="Package 43v3-test.mcpack">Version 3 (測試版)</option>
+            <option value="Package 43v2.mcpack">Version 2</option>
+            <option value="Package 43v1-test.mcpack">Version 1 (beta版)</option>
+        </select>
+    </div>
+
+    <a id="downloadLink" href="Package 43v4.mcpack" download class="download-btn">
+        立即安裝模組
+    </a>
+
+    <div class="info-tag" id="fileNameDisplay">
+        作者: Tim--Packagedeveloper57
+    </div>
+</div>
+
+<script>
+    function updateDownloadLink() {
+        const selector = document.getElementById('version');
+        const link = document.getElementById('downloadLink');
+        const display = document.getElementById('fileNameDisplay');
+        
+        const selectedFile = selector.value;
+        
+        // 更新下載連結與顯示
+        link.href = selectedFile;
+        display.innerText = "檔案名稱: " + selectedFile;
+    }
+</script>
+
+</body>
+</html>
